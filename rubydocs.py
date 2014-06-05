@@ -8,7 +8,7 @@ class RubydocsCommand(sublime_plugin.TextCommand):
             word = self.view.word(region)
             if not word.empty():
                 keyword = self.view.substr(word)
-                response = urllib2.urlopen("http://api.rubydocs.dev:3000/search?q=%s" % keyword).read()
+                response = urllib2.urlopen("http://api.rubydocs.com/search?q=%s" % keyword).read()
                 content = json.loads(response)['content']
                 view = sublime.active_window().new_file()
                 view.insert(edit, 0, content)
